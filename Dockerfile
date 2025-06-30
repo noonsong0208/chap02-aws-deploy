@@ -27,6 +27,9 @@ FROM eclipse-temurin:17-jre-alpine
 # 작업 디렉토리 설정
 WORKDIR /app
 
+# Alpine Linux CURL 명렁어 설치 (ECS의 헬스체크용)
+RUN apk add curl
+
 # 빌드된 JAR 파일 복사
 COPY --from=builder /app/build/libs/*.jar app.jar
 
